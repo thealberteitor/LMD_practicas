@@ -1,0 +1,92 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 11.08.0 ] */
+
+/* [wxMaxima: input   start ] */
+load (graphs);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A:matrix([0,1,1,1],[1,0,1,1],[1,1,0,1],[1,1,1,0]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+is_isomorphic(K4,complete_graph(4));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+-----------------------------------------
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f(x,y):=is(mod(x+y,3)=0);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+grafo:make_graph(makelist(i,i,0,15),f);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(grafo);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+is_connected(grafo);    //¿es conexo?
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+C:connected_components(grafo);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+----------------------------------------
+
+
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+grafo1:induced_subgraph(C[1],grafo);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(grafo1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+bipartition(grafo1);   //bipartido
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+is_isomorphic(grafo1,complete_bipartite_graph(5,5));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+degree_sequence(K34);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+K6:complete_graph(6);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+ch:hamilton_cycle(K6);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(K6,show_Edges=vertices_to_cycle(ch));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+is_planar(K6); ¿Es plano?
+
+Hamilton: 
+te puedes poner en una casilla con el caballo y con los mov del caballo pasar con todas una sola vez y volver a la de origen.
+
+solucion internet hamilton
+
+f que cuando dos casilla se puede pasar de una a otra con el caballo
+problema del paseo del caballo
+
+/* [wxMaxima: input   end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$

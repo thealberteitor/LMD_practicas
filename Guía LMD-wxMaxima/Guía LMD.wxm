@@ -1,0 +1,707 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 11.08.0 ] */
+
+/* [wxMaxima: comment start ]
+Alberto Jesús Durán López
+LMD1516 19 Guía de Maxima
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: title   start ]
+Introducción
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: fold    start ] */
+
+/* [wxMaxima: comment start ]
+Wxmáxima es una potente herramienta que nos permitirá realizar calculos numéricos 
+y matemáticos para facilitar el estudio de números, conjuntos y funciones, asi
+como combinatoria o recursividad. En este manual se recoge una pequeña parte de
+este software libre en el que se detallarán los comandos más importantes de cada 
+punto a desarrollar.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: fold    end   ] */
+
+/* [wxMaxima: title   start ]
+Números
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: fold    start ] */
+
+/* [wxMaxima: comment start ]
+Los cálculos aritméticos con números enteros y racionales son exactos:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+4*5/8;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Podemos almacenar el valor en una variable para después poder usarla:
+sqrt(n) = raiz cuadrada de n.
+n! = factorial de n.
+divisors(n) = divisores del n.
+abs(n) = valor absoluto de n.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+n:4*5/sqrt(9);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+((n-17/3)+9)!;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+divisors(144);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+abs(5-8);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Funciones para los números:
+evenp = devuelve si un número es par.
+oddp = devuelve si un número es impar.
+integerp = devuelve si un número es entero.
+nonnegintegerp = devueve si un número es natural (incluyendo el 0).
+float = convierte racionales a decimal.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+evenp(2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+oddp(45);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+integerp(43.86);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+nonnegintegerp(91);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Declaramos el número pi y el número e:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+pi:%pi;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+e:%e;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(e);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+float(pi*e);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: fold    end   ] */
+
+/* [wxMaxima: title   start ]
+Listas
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: fold    start ] */
+
+/* [wxMaxima: comment start ]
+Las listas son bloques de construcción básica de Maxima.
+Estas listas están delimitadas por los operadores [ ] que
+marcan respectivamente el comienzo y el final de ellas.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Podemos hacer una lista de n elementos y para comprobar el valor
+del elemento n, basta con llamarla como hacemos a continuación:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+k: [a, b, c, d, e, f, g, h];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+k[2];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+k[6];
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Para copiar una lista:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+a:copylist(k);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Creamos una lista con iteración o con doble iteración:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+create_list(x^i , i, [1, 5, 7]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+create_list([i, j], i, [a, b], j, [e, f, h]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Para eliminar elementos de una lista:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+delete( 5, [1, 2, 3, 4, 5, 6, 7, 8]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist(random(6), 4);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Creamos una lista vacía:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist();
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Se pueden crear listas algo más complejas:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist (concat (x,i), i, 99);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+makelist (x^3, x, 3, 2*%pi, 3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: fold    end   ] */
+
+/* [wxMaxima: title   start ]
+Funciones
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: fold    start ] */
+
+/* [wxMaxima: comment start ]
+Declaramos una función de la forma:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+g(x):= 1/(x^2+1);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+p(x,y):= (2+y)/(4-x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Podemos ahora consultar los distintos valores de toma la variable x:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+g(4);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+g(pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+p(3,6);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Función logaritmo:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+log(19), numer;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Muchas veces resulta de gran iayuda mostar la función para estudiarla
+detalladamente. La mostramos mediante el siguiente comando:
+wxplot2d([función], [variable, inicio, final])
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+wxplot2d([g(x)], [x, -5, 5]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Integración y derivación:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+a:integrate((x^2),x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+diff(sin(x),x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+diff(a,x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: fold    end   ] */
+
+/* [wxMaxima: title   start ]
+Funciones combinatorias
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: fold    start ] */
+
+/* [wxMaxima: comment start ]
+Cargamos el paquete correspondiente.
+binomial(n,k) Calcula el coeficiente binomial o número combinatorio.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(functs);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+binomial(11,7);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+11!/7!/(11-7)!;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Muestra un número aleatorio entre 0 y n-1
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+random(5);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+combination(n,r) Permite obtener las combinaciones de n elementos tomados en grupos de r.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+combination(4,2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+permutation(n,r) Realiza el cálculo del número de permutaciones de r elementos seleccionados
+de entre un conjunto de n elementos.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+permutation(6,2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Máxima no dispone del resto de funciones combinatorias por lo que las tendremos de definir nosotros:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Variaciones con repetición:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+VR(n,k):= n^k;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+VR(2,3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: fold    end   ] */
+
+/* [wxMaxima: title   start ]
+Funciones trigonométricas
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: fold    start ] */
+
+/* [wxMaxima: comment start ]
+Maxima reconoce muchas funciones trigonométricas y aunque no esté programadas
+todas estas, podemos añadir muchas de ellas.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+pi:%pi;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+cos(pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sin(pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+tan(pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+acos(pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+asin(pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+sec(pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+cos(pi);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Además, también se pueden realizar operaciónes entre estas funciones trigonométricas
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+F(x):=x+sin(3*x)/sin(x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+F(pi/2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Expandir funciones trigonométricas
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+trigexpand(x+sin(3*x)/sin(x));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: fold    end   ] */
+
+/* [wxMaxima: title   start ]
+Conjuntos
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: fold    start ] */
+
+/* [wxMaxima: comment start ]
+Maxima dispone de funciones para realizar operaciones con conjuntos, como la
+intersección o la unión. 
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Para construir un conjunto con n elementos, se utiliza la instrucción set(a1...an)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+set();
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+set(a, b, a);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+set(a, b, c);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+En el apartado de lista hemos creado una lista llamada 'k' y otra copia de ella
+llamada 'a'. Podemos crear un conjunto a partir de dos listas; en este caso,
+como son iguales solo apareceran los elementos una única vez
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+setify([a,k]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+R:create_list([1, 2, 3]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Unión e intersección:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+union(setify([1,2]), {a,b});
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+intersection(setify([1,2]), {a,b,2,3});
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Podemos unir y quitar elementos al conjunto:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+c:adjoin(c, {a,b});
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+disjoin(a,{a,b});
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Devolver el número de elementos del conjunto:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+cardinality(c);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: fold    end   ] */
+
+/* [wxMaxima: title   start ]
+Matrices
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: fold    start ] */
+
+/* [wxMaxima: comment start ]
+Las matrices se escriben de forma parecida a las listas y , de hecho, solo hay
+que agrupar las filas de la matriz escritas como listas tras la orden matrix.
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+A:matrix([1,2,3],[5,2,1],[9,0,2]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+B:matrix([1,1,4],[7,1,0],[0,0,3]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Operaciones elementales con matrices:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+A+B;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A-B;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A.B;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+B.A;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A^2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Definimos un vector para después operar con las matrices:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+a:matrix([1,2,3]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+A.a;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+B.a;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Consultas sobre la matriz:
+Determinante, rango, inversa, traspuesta, tamaño, método de Gauss(triangularize)
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+determinant(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+rank(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+invert(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+transpose(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+matrix_size(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+triangularize(A);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+En este punto, no por ellos menos importante, trataremos funciones de gran utilidad:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: comment start ]
+Resolver ecuaciones lineales:
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+linsolve([x+y=6,x-y=0],[x,y]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+linsolve([x+y+z=6, x-y+z=2, x+y-z=0], [x,y,z]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Si no tiene solución muestra []
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+linsolve([x+y+z=6, x-y+z=2, x+y-z=0, x+y+z=0], [x,y,z]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Cálculo de límites:
+limit(expr, x, 'valor al que tiende')
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+limit(x^2, x, 3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: fold    end   ] */
+
+/* [wxMaxima: title   start ]
+Grafos
+   [wxMaxima: title   end   ] */
+
+/* [wxMaxima: fold    start ] */
+
+/* [wxMaxima: comment start ]
+Veremos por encima el paquete de grafos, los cuales se representan internamente como 
+listas de adyacencia
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+load(graphs);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Creamos un ciclo de 3 vértices
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+g:create_graph([1,2,3],[[1,2],[2,3],[1,3]]);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(g);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Grafo bipartido completo de n+m vértices
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+h:complete_bipartite_graph(2,3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(h);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Devolver un árbol aleatorio de n vértices
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+s:random_tree(50);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(s);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+l:tutte_graph();
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(l);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Mostrar el número cromático del grafo
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+chromatic_index(l);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Mostramos el ciclo de hamilton
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+hamilton_cycle(l);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+c:cube_graph(3);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+hc:hamilton_cycle(c);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(c, show_edges=vertices_to_cycle(hc));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: comment start ]
+Producto de grafos y árbol de expansión mínimo
+   [wxMaxima: comment end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(path_graph(5));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+g: graph_product(path_graph(9),path_graph(9));
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+t:minimum_spanning_tree(g);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+draw_graph(g, show_edges=edges(t));
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: fold    end   ] */
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
